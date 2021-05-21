@@ -1,12 +1,14 @@
 import React from 'react';
 
-function Header() {
+
+function Header(props) {
 
   return (
     <header>
       <img
-        src = ""
+        src ={props.proptimusLogo}
         alt = "logo"
+        onClick={props.toggle}
       />
     </header>
   );

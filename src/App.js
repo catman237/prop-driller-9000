@@ -1,4 +1,5 @@
 import React from 'react';
+import TransformerSection from './Containers/TransformersSection.js'
 
 import './App.css';
 
@@ -6,6 +7,7 @@ import Header from './Components/Header';
 
 export default class App extends React.Component {
   state = {
+    isVisible: false,
     proptimusLogo: 'https://i.pinimg.com/originals/f8/7d/ec/f87dec9d6334af383a27f73e48ccf154.png',
     proptimii: [
       {
@@ -25,10 +27,17 @@ export default class App extends React.Component {
     ]
   }
 
+  toggleVis = () => {
+    this.setState({isVisible: !this.state.isVisible})
+    console.log('toggling')
+  }
+  
+
   render() {
     return (
       <div className="App">
-        <Header />
+        <Header proptimusLogo={this.state.proptimusLogo} toggle={this.toggleVis}/>
+        <TransformerSection transformers={this.state.proptimii} isVisible={this.state.isVisible} />
       </div>
     );
   }
